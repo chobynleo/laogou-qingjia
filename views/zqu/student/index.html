@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon"
+          href="../../../static/images/favicon.ico">
+    <link rel="stylesheet"
+          href="../../../static/css/student/bootstrap.css"/>
+    <link rel="stylesheet"
+          href="../../../static/css/student/bootstrapValidator.css"/>
+    <link rel="stylesheet"
+          href="../../../static/css/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet"
+          href="../../../static/css/student/demo.css"/>
+    <link rel="stylesheet"
+          href="../../../static/css/student/gsdk-bootstrap-wizard.css"/>
+    <link rel="stylesheet"
+          href="../../../static/css/student/style.css"/>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+          name='viewport'/>
+    <meta name="viewport" content="width=device-width"/>
+    <meta charset="utf-8">
+    <title>学生请假管理系统</title>
+
+</head>
+<body>
+
+<div class="image-container set-full-height" style="background-image: url('../../../static/images/bg.png')">
+    <section>
+        <div class="container">
+
+<div class="row" style="height:80px" > 
+<ul  class="nav nav-pills" >
+ <li role="presentation" class="active" ><a href="#">请假申请</a></li> 
+  <li role="presentation" ><a href="record.html" id="torecord">请假记录</a></li>
+<!--  <li role="presentation" ><a href="javascript:viewRecord()">请假记录</a></li>  -->
+ <li style="float:right" role="presentation"  ><a href="../login.html">退出</a></li>
+    <li style="float:right;padding-top: 10px"> 欢迎<span id="username"></span>同学使用学生请假管理系统 &nbsp;</li>
+
+</ul>
+</div>
+
+            <div class="row">
+                <div class="index-body animated" id="index">
+                    <div class="wizard-container" style="padding-top: 0px!important;">
+                        <div class="card wizard-card" data-color="orange"
+                             id="wizardProfile">
+                            <div class="wizard-header">
+                                <h3>
+                                  <b>广东海洋大学学生请假系统</b><br>
+                                </h3>
+                            </div>
+                            
+                            <form id="testForm" class="form-signin"
+                                  @submit.prevent="submit" enctype="multipart/form-data">
+
+                                <div class="form-group row">
+                                
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-bookmark-o">学号</i></span>
+                                            <input name="Name" type="text" class="form-control " id="studentId"
+                                                          value="${result.student.studentId}" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user">姓名</i></span>
+                                            <input name="Name" type="text" class="form-control "
+                                                   id="Name" value="${result.student.name}" disabled>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-building-o">学院</i>
+                                                </span> <input name="Name" type="text" class="form-control "
+                                                               id="department"
+                                                               value="${result.student.department}" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-tag">班级</i></span>
+                                            <input name="Name" type="text" class="form-control "
+                                                   id="className" value="${result.student.className}" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <div class="col-md-6 ">
+                                        <div class="input-group">
+												<span class="input-group-addon"><i
+                                                        class="fa fa-calendar-o">开始时间</i></span>
+                                            <input name="begin1" type="text" class="form-control" id="begin"
+                                                   placeholder="选择开始时间"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+												<span class="input-group-addon"><i
+                                                        class="fa fa-calendar-o">截止时间</i></span>
+                                            <input type="text" name="end1" id="end" class="form-control"
+                                                   placeholder="选择截止时间"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-md-6 " style="padding: 0px;">
+                                        <div class="input-group">
+												<span class="input-group-addon"><i
+                                                        class="fa fa-phone">联系方式</i></span>
+                                            <input name="Mobile" type="text" class="form-control" id="Mobile"
+                                                   placeholder="请输入手机号码" v-model="information.phone">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+												<span class="input-group-addon"><i
+                                                        class="fa fa-clock-o">请假节数</i></span>
+                                            <input type="text" name="Number" id="Number" class="form-control"
+                                                   placeholder="请输入请假节数" v-model="information.number"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row" style="padding-left: 15px;">
+                                    <label for="reason"><i class="fa fa-edit">请假理由</i></label>
+                                    <textarea class="form-control" row="5" name="Reason"
+                                              id="Reason" v-model="information.reason"
+                                              placeholder="请输入请假理由"></textarea>
+                                </div>
+                                
+				<div class=" form-group row">
+
+											<div class="dropdown col-md-4">
+												  <select class="selectpicker show-tick form-control" data-live-search="true" name="select-teacher">
+												    <option value="-1">请选择请假教师</option>
+												  </select>
+
+											</div>
+				</div>
+
+                                <div class="form-group row ">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<label for="file"><i
+                                        class="fa fa-upload">上传请假证明</i></label> &nbsp;&nbsp;&nbsp;&nbsp; <input
+                                        type="file" id="file" name="file" />
+                                        
+                                        
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-2 col-md-offset-10">
+                                        <button type="button" class="btn btn-info" id="btn"
+                                                title="提交申请" @click="submitSignIn">
+                                            <i class="fa fa-check">提交申请</i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer" style="margin-bottom: 0px;">
+                <div class="foot-text">广东海洋大学学生请假管理系统</div>
+                <div class="foot-copyright">Copyright© 2019 GDOU Graduation-design Software</div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script type="text/javascript"
+        src="../../../static/js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript"
+        src="../../../static/js/json2.js"></script>
+
+<script type="text/javascript"
+        src="../../../static/js/student/bootstrap.js"></script>
+<script type="text/javascript"
+        src="../../../static/js/laydate/laydate.js"></script>
+
+<script type="text/javascript"
+        src="../../../static/js/layer/layer.js"></script>
+<script type="text/javascript"
+        src="../../../static/js/layer/extend/layer.ext.js"></script>
+<script type="text/javascript"
+        src="../../../static/js/student/vue.min.js"></script>
+<script type="text/javascript"
+        src="../../../static/js/student/bootstrapValidator.js"></script>
+<script type="text/javascript"
+        src="../../../static/js/student/language/zh_CN.js"></script>
+<script type="text/javascript"
+        src="../../../static/js/student/ajaxfileupload.js"></script>
+<script type="text/javascript"
+        src="../../../static/script/Submit.js"></script>
+
+<script type="text/javascript"
+        src="../../../js/student/index.js"></script>
+<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+body{
+    background: url("../images/1login.jpg");
+    animation-name:myfirst;
+    /*animation-duration:12s;*/
+    /*变换时间*/
+    animation-delay:2s;
+    /*动画开始时间*/
+    animation-iteration-count:infinite;
+    /*下一周期循环播放*/
+    animation-play-state:running;
+    /*动画开始运行*/
+}
+@keyframes myfirst
+{
+    0%   {background:url("../images/2login.jpg");}
+    34%  {background:url("../images/3login.jpg");}
+    67%  {background:url("../images/4login.jpg");}
+    100% {background:url("../images/5login.jpg");}
+}
+.form{background: rgba(255,255,255,0.2);width:425px;margin:120px auto;}
+/*阴影*/
+.fa{display: inline-block;top: 27px;left: 6px;position: relative;color: #ccc;}
+input[type="text"],input[type="password"]{padding-left:26px;}
+.checkbox{padding-left:21px;}
+.checkclick{float: right;color: #ffffff;font-size: 17px;cursor:pointer;}
+.checkclick:link {color: #ffffff}     /* 未访问的链接 */
+.checkclick:visited {color: #ffffff}  /* 已访问的链接 */
+.checkclick:hover {color: #a4ffc5}    /* 当有鼠标悬停在链接上 */
+.checkclick:active {color: #0000FF}   /* 被选择的链接 */

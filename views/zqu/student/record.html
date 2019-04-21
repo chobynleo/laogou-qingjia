@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="shortcut icon"
+          href="../../../static/images/favicon.ico">
+    <link rel="stylesheet"
+          href="../../../static/css/student/bootstrap.css"/>
+    <link rel="stylesheet"
+          href="../../../static/css/student/bootstrapValidator.css"/>
+    <link rel="stylesheet"
+          href="../../../static/css/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet"
+          href="../../../static/css/student/demo.css"/>
+    <link rel="stylesheet"
+          href="../../../static/css/student/gsdk-bootstrap-wizard.css"/>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+          name='viewport'/>
+    <meta name="viewport" content="width=device-width"/>
+    <meta charset="utf-8">
+    <title>个人请假记录</title>
+		<link rel="shortcut icon" href="../../../static/images/favicon.ico">
+		<link rel="stylesheet"href="../../../static/css/studentList/bootstrap.min.css">
+		<link rel="stylesheet"	href="../../../static/css/studentList/normalize.min.css">
+		<link rel="stylesheet" href="../../../static/css/studentList/style.css">
+        <link rel="stylesheet" href="../../../static/css/teacher/font-awesome.min.css" />
+        <link rel="stylesheet" href="../../../static/js/teacher/bootstrap_above/bootstrap-table-develop/dist/bootstrap-table.css" />
+        <link rel="stylesheet" href="../../../static/css/teacher/ace.min.css" />
+
+
+        <style>
+            .pagination-detail{
+                display:none;
+            }
+        </style>
+</head>
+
+<body>
+<div class="image-container set-full-height"style="background-image: url('../../../static/images/bg.png')">
+    <div class="container">
+        <div class="row" style="height:80px" >
+        <ul  class="nav nav-pills" >
+         <li role="presentation"  ><a href="index.html">请假申请</a></li>
+          <li role="presentation" class="active" ><a href="#">请假记录</a></li>
+        <!--  <li role="presentation" ><a href="javascript:viewRecord()">请假记录</a></li>  -->
+         <li style="float:right" role="presentation"  ><a href="../login.html">退出</a></li>
+         <li style="float:right;padding-top: 10px;"> 欢迎<span id="username"></span>同学使用学生请假管理系统 &nbsp;</li>
+
+        </ul>
+        </div>
+       <div class="image-container set-full-height">
+           <div class="main-container" id="main-container">
+               <div class="main-container-inner">
+                   <div class="content">
+                       <div class="page-content">
+                           <h3 style="text-align: center;padding: 15px"><b style="font-size: 27px">个人请假记录</b></h3>
+                           <div class="row">
+                               <div class="col-xs-12 col-md-12 col-lg-12 ">
+                                   <!--此行不可删-->
+                                   <span id="dataBox" style="display:none" >${yiban_id}</span>
+                                   <table class="table-responsive" id="studentTable"></table>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="modal fade" id="Detail1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="ture">
+               <div class="modal-dialog modal-lg">
+                   <div class="modal-content">
+                       <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal" aria-hidden="ture" onclick="closemodal()">&times;</button>
+                           <!-- 			      改成false -->
+                           <h4 class="modal-title" id="myModalLabel">  <center> 请假详细信息     </center>  </h4>
+                       </div>
+                       <form class="form-horizontal">
+                           <div class="modal-body">
+
+                               <div class="form-group row">
+                                   <div class="col-md-12">
+                                       <div class="input-group">
+                                           <span class="input-group-addon">院系/班级：</span>
+                                           <input name="dcname" type="text" class="form-control " id="dcname"
+                                                  value="" disabled>
+                                       </div>
+                                   </div>
+                               </div>
+
+                               <div class="form-group row">
+                                   <div class="col-md-12">
+                                       <div class="input-group">
+                                           <span class="input-group-addon">姓名/学号：</span>
+                                           <input name="nameid" type="text" class="form-control " id="nameid"
+                                                  value="" disabled>
+                                       </div>
+                                   </div>
+                               </div>
+
+                               <div class="form-group row">
+                                   <div class="col-md-12">
+                                       <div class="input-group">
+                                           <span class="input-group-addon">起止时间：</span>
+                                           <input name="time" type="text" class="form-control " id="time"
+                                                  value="" disabled>
+                                       </div>
+                                   </div>
+                               </div>
+
+                               <div class="form-group row">
+                                   <div class="col-md-6">
+                                       <div class="input-group">
+                                           <span class="input-group-addon">请假节数</span>
+                                           <input name="jieshu" type="text" class="form-control " id="jieshu"
+                                                  value="" disabled>
+                                       </div>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <div class="input-group">
+                                           <span class="input-group-addon">联系电话</span>
+                                           <input name="phone" type="text" class="form-control "
+                                                  id="phone" value="" disabled>
+                                       </div>
+                                   </div>
+                               </div>
+
+                               <div class="form-group row">
+                                   <div class="col-md-6">
+                                       <div class="input-group">
+                                           <span class="input-group-addon">请假证明</span>
+                                           <a href="#" id="download" title="请单击下载" class="col-sm-10 form-control" download="test.png">请假证明文件</a>
+                                       </div>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <div class="input-group">
+                                           <span class="input-group-addon">当前状态</span>
+                                           <input name="status" type="text" class="form-control "
+                                                  id="status" value="" disabled>
+                                       </div>
+                                   </div>
+                               </div>
+
+                               <div class="form-group row">
+                                   <div class="col-md-6">
+                                       <div class="input-group">
+                                           <span class="input-group-addon">辅导员/班主任</span>
+                                           <input name="targetteacher" type="text" class="form-control " id="targetteacher"
+                                                  value="" disabled>
+                                       </div>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <div class="input-group">
+                                           <span class="input-group-addon">假条编号</span>
+                                           <input name="jiatiaoid" type="text" class="form-control "
+                                                  id="jiatiaoid" value="" disabled>
+                                       </div>
+                                   </div>
+                               </div>
+
+                               <div class="row">
+                                   <div class="col-md-2">
+                                       <span class="input-group-addon">请假理由</span>
+                                   </div>
+                                   <div class="col-md-10">
+                                       <textarea class="form-control col-md-9" rows="2" name="reason" id="reason" disabled></textarea>
+                                   </div>
+                               </div>
+                               <br>
+
+                               <div class="row">
+                                   <div class="col-md-2">
+                                       <span class="input-group-addon">辅导员/班主任意见</span>
+                                   </div>
+
+                                   <div class="col-md-10">
+                                       <textarea class="form-control col-md-9" rows="2" name="teacheradvice" id="teacheradvice" disabled></textarea>
+                                   </div>
+                               </div>
+
+                               <br>
+
+                               <div class="row">
+                                   <div class="col-md-2">
+                                       <span class="input-group-addon">副书记意见</span>
+                                   </div>
+
+                                   <div class="col-md-10">
+                                       <textarea class="form-control col-md-9" rows="2" name="secretaryadvice" id="secretaryadvice" disabled></textarea>
+                                   </div>
+                               </div>
+
+                               <br>
+
+                               <div class="form-group row">
+                                   <div class="col-md-12 col-md-offset-5">
+
+                                       <button type="button" id="dayin" class="btn btn-info" disabled>打印假条</button>
+                                   </div>
+                                   <div class="col-md-12 " style="text-align: center">
+                                       <span id="tip" style="color: red;display: none;text-align: center">(只有正常审批后的申请才能下载电子假条)</span>
+                                   </div>
+                               </div>
+                           </div>
+                       </form>
+                      <!-- <div class="modal-footer">
+                           <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                       </div>-->
+                   </div>
+               </div>
+           </div>
+           <div class="modal fade" id="xiaojiamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="ture">
+               <div class="modal-dialog modal-lg">
+                   <div class="modal-content">
+                       <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal" aria-hidden="ture" onclick="closexiaojiamodal()">&times;</button>
+                           <!-- 			      改成false -->
+                           <h4 class="modal-title" id="xiaojiaLabel">  <center>销假请求</center>  </h4>
+                       </div>
+                       <div id="modal-body">
+
+                       </div>
+                       <!-- <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                        </div>-->
+                   </div>
+               </div>
+           </div>
+       </div>
+
+        <div class="footer">
+                <div class="foot-text">广东海洋大学学生请假管理系统</div>
+                <div class="foot-copyright">Copyright© 2019 GDOU Graduation-design Software</div>
+            </div>
+            <script type="text/javascript" src="../../../static/js/jquery-1.10.2.min.js"></script>
+            <script type="text/javascript" src="../../../static/js/teacher/bootstrap_above/bootstrap/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="../../../static/js/teacher/bootstrap_above/bootstrap-table-develop/dist/bootstrap-table.js"></script>
+            <script type="text/javascript" src="../../../static/js/teacher/bootstrap_above/bootstrap-table-develop/dist/locale/bootstrap-table-zh-CN.js"></script>
+            <script src="../../../static/js/layer/layer.js"   type="text/javascript"></script>
+            <script src="../../../static/js/layer/extend/layer.ext.js"  type="text/javascript"></script>
+            <!--<script src="../../../static/script/studentRecord.js"   type="text/javascript"></script>-->
+
+            <script type="text/javascript"src="../../../js/student/record.js"></script>
+       </div>
+    </div>
+</div>
+</body>
+
+</html>
