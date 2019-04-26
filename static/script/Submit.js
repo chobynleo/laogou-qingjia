@@ -41,16 +41,16 @@ var endTime; //定义请假结束时间变量
 function getTime() {
     var begin = {
         elem: '#begin', //选择ID为begin的input
-        format: 'YYYY-MM-DD hh:mm:ss', //自动生成的时间格式
-        min: laydate.now(0, "YYYY-MM-DD hh:mm:ss"), //设定最小日期为当前日期
-        max: '2099-06-16 23:59:59', //最大日期
+        format: 'YYYY-MM-DD hh:mm', //自动生成的时间格式
+        min: laydate.now(0, "YYYY-MM-DD hh:mm"), //设定最小日期为当前日期
+        max: '2099-06-16 23:59', //最大日期
         isclear: true,  //  是否显示清空
         istime: true, //必须填入时间
         istoday: true,  //是否是当天
         calendar: true,
         // fixed:true,
         theme: 'molv',
-        begin: laydate.now(0, "YYYY-MM-DD hh:mm:ss"),  //设置开始时间为当前时间
+        begin: laydate.now(0, "YYYY-MM-DD hh:mm"),  //设置开始时间为当前时间
         choose: function (datas) {
             end.min = datas; //开始日选好后，重置结束日的最小日期
             end.begin = datas //将结束日的初始值设定为开始日
@@ -61,7 +61,7 @@ function getTime() {
 								    //     elem: '#begin',
 								    //     theme: 'molv',
 								    //     type: 'datetime',
-								    //     min: laydate.now(0, "YYYY-MM-DD hh:mm:ss"), //设定最小日期为当前日期
+								    //     min: laydate.now(0, "YYYY-MM-DD hh:mm"), //设定最小日期为当前日期
 								    //     max: '2099-06-16 23:59:59', //最大日期
 								    //     isclear: true, // 是否显示清空
 								    //     istime: true, //必须填入时间
@@ -75,7 +75,7 @@ function getTime() {
 								    //     elem: '#end',
 								    //     theme: 'molv',
 								    //     type: 'datetime',
-								    //     min: laydate.now(0, "YYYY-MM-DD hh:mm:ss"), //设定最小日期为当前日期
+								    //     min: laydate.now(0, "YYYY-MM-DD hh:mm"), //设定最小日期为当前日期
 								    //     max: '2099-06-16 23:59:59', //最大日期
 								    //     isclear: true, // 是否显示清空
 								    //     istime: true, //必须填入时间
@@ -87,16 +87,16 @@ function getTime() {
     
     var end = {
         elem: '#end',
-        format: 'YYYY-MM-DD hh:mm:ss',
-        min: laydate.now(0,"YYYY-MM-DD hh:mm:ss"),
-        max: '2099-06-16 23:59:59',
+        format: 'YYYY-MM-DD hh:mm',
+        min: laydate.now(0,"YYYY-MM-DD hh:mm"),
+        max: '2099-06-16 23:59',
         isclear: true, // 是否显示清空
         istime: true, //必须填入时间
         istoday: true,  //是否是当天
         calendar: true,
         // fixed:true,
         theme: 'molv',
-        begin: laydate.now(0, "YYYY-MM-DD hh:mm:ss"),
+        begin: laydate.now(0, "YYYY-MM-DD hh:mm"),
         choose: function (datas) {
             begin.max = datas; //结束日选好后，重置开始日的最大日期
         						}
@@ -112,7 +112,6 @@ function getTime() {
  * @return {boolean}
  */
 function JudgeTime(begin, end) {
-
 
     //截取字符串，得到日期部分,用split把字符串分隔成数组
 
@@ -145,8 +144,8 @@ function JudgeTime(begin, end) {
 	    //将日期和时间两个部分计算出来的差值相加，即得到两个时间相减后的分钟数
 	    var minutes = m + n;
 	    //检测时间
-	    if (minutes > 4320) {
-	        layer.msg("请假的时间不能超过三天", {icon: 2});
+	    if (minutes >= 21600) {
+	        layer.msg("暂不支持大于 15 天的请假，请咨询辅导员", {icon: 2});
 	        return false;
 	    } else if ($.trim(begin) == "" || $.trim(end) == "" || begin == null || end == null) {
 	        layer.msg("开始或截止时间不能为空", {icon: 2});
@@ -318,12 +317,13 @@ var vm = new Vue({
                     "number": vm.information.number,
                     "reason": vm.information.reason
                 };
-                alert(information.studentId);
-                alert(information.phone);
-                alert(information.beginTime);
-                alert(information.endTime);
-                alert(information.number);
-                alert(information.reason);
+                console.log('-------表单信息-------')
+              console.log(information.studentId);
+              console.log(information.phone);
+              console.log(information.beginTime);
+              console.log(information.endTime);
+              console.log(information.number);
+              console.log(information.reason);
                 
                 console.log(information);
                 

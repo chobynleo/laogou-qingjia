@@ -1,3 +1,4 @@
+alert('唯一校验码为001，输入其他的号码都将查询失败')
 function  querycode() {
   $("#queryresult").empty();
   var data = {
@@ -29,7 +30,13 @@ function  querycode() {
     "                                <td>"+ status +"</td>\n" +
     "                            </tr>\n" +
     "                        </table>";
-  $("#queryresult").append(str);
+  var err = '未找到相应的电子假条';
+  if ($("#checkcode").val() === '001'){
+    $("#queryresult").append(str);
+  }else{
+    $("#queryresult").append(err);
+  }
+
     /*$.ajax({
       type: "post",
       url: url,

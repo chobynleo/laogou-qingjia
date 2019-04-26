@@ -20,10 +20,10 @@ var datalist = [{
   needxiaojia:0, //该学生是否需要销假，0代表否，1代表需要(体现在查看详情的switch里面。)
   teacheradvice:"",
   secretaryadvice:"",
-  beginTime:"2019-01-21 16:48:38",
-  endTime:"2019-01-21 16:48:38",
-  createTime:"2119-01-21 16:48:38",
-  status: 0,//当前状态
+  beginTime:"2019-01-21 16:48",
+  endTime:"2019-01-21 16:48",
+  createTime:"2119-01-21 16:48",
+  status: 0,//当前状态 0申请中 1已批准 2已拒绝 3已申请销假 4待销假 5已销假 0申请中 1已批准 2已拒绝 3已申请销假 4待销假 5已销假
   teacherid: '1152001',//教师id
   isteacheragreeqingjia:0,//老师是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
   issecretaryagreeqingjia:0,//副书记是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
@@ -46,10 +46,10 @@ var datalist = [{
     needxiaojia:1, //该学生是否需要销假，0代表否，1代表需要(体现在查看详情的switch里面。)
     teacheradvice:"情况属实，同意请假。已同意， 岳川 2019/3/3 12:50",
     secretaryadvice:"",
-    beginTime:"2019-01-21 16:48:38",
-    endTime:"2019-01-21 16:48:38",
-    createTime:"2119-01-21 16:48:38",
-    status: 1,//当前状态
+    beginTime:"2019-01-21 16:48",
+    endTime:"2019-01-21 16:48",
+    createTime:"2119-01-21 16:48",
+    status: 1,//当前状态 0申请中 1已批准 2已拒绝 3已申请销假 4待销假 5已销假
     teacherid: '1152001',//教师id
     isteacheragreeqingjia:1,//老师是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
     issecretaryagreeqingjia:0,//副书记是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
@@ -72,10 +72,10 @@ var datalist = [{
     needxiaojia:0, //该学生是否需要销假，0代表否，1代表需要(体现在查看详情的switch里面。)
     teacheradvice:"",
     secretaryadvice:"",
-    beginTime:"2019-01-21 16:48:38",
-    endTime:"2019-01-21 16:48:38",
-    createTime:"2119-01-21 16:48:38",
-    status: 2,//当前状态
+    beginTime:"2019-01-21 16:48",
+    endTime:"2019-01-21 16:48",
+    createTime:"2119-01-21 16:48",
+    status: 2,//当前状态 0申请中 1已批准 2已拒绝 3已申请销假 4待销假 5已销假
     teacherid: '1152001',//教师id
     isteacheragreeqingjia:0,//老师是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
     issecretaryagreeqingjia:0,//副书记是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
@@ -98,10 +98,10 @@ var datalist = [{
     needxiaojia:1, //该学生是否需要销假，0代表否，1代表需要(体现在查看详情的switch里面。)
     teacheradvice:"情况属实，同意请假。已同意， 岳川 2019/3/3 12:50",
     secretaryadvice:"",
-    beginTime:"2019-01-21 16:48:38",
-    endTime:"2119-01-21 16:48:38",
-    createTime:"2119-01-21 16:48:38",
-    status: 3,//当前状态
+    beginTime:"2019-01-21 16:48",
+    endTime:"2119-01-21 16:48",
+    createTime:"2119-01-21 16:48",
+    status: 3,//当前状态 0申请中 1已批准 2已拒绝 3已申请销假 4待销假 5已销假
     teacherid: '1152001',//教师id
     isteacheragreeqingjia:1,//老师是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
     issecretaryagreeqingjia:0,//副书记是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
@@ -124,10 +124,10 @@ var datalist = [{
     needxiaojia:0, //该学生是否需要销假，0代表否，1代表需要(体现在查看详情的switch里面。)
     teacheradvice:"",
     secretaryadvice:"",
-    beginTime:"2019-01-21 16:48:38",
-    endTime:"2119-01-21 16:48:38",
-    createTime:"2119-01-21 16:48:38",
-    status: 4,//当前状态
+    beginTime:"2019-01-21 16:48",
+    endTime:"2119-01-21 16:48",
+    createTime:"2119-01-21 16:48",
+    status: 4,//当前状态 0申请中 1已批准 2已拒绝 3已申请销假 4待销假 5已销假
     teacherid: '1152002',//教师id，这个例子代表不是目标老师
     isteacheragreeqingjia:0,//老师是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
     issecretaryagreeqingjia:0,//副书记是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
@@ -150,10 +150,10 @@ var datalist = [{
     needxiaojia:1, //该学生是否需要销假，0代表否，1代表需要(体现在查看详情的switch里面。)
     teacheradvice:"情况属实，同意请假。已同意， 岳川 2019/3/3 12:50",
     secretaryadvice:"",
-    beginTime:"2019-01-21 16:48:38",
-    endTime:"2119-01-21 16:48:38",
-    createTime:"2119-01-21 16:48:38",
-    status: 5,//当前状态
+    beginTime:"2019-01-21 16:48",
+    endTime:"2119-01-21 16:48",
+    createTime:"2119-01-21 16:48",
+    status: 5,//当前状态 0申请中 1已批准 2已拒绝 3已申请销假 4待销假 5已销假
     teacherid: '1152001',//教师id
     isteacheragreeqingjia:0,//老师是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
     issecretaryagreeqingjia:0,//副书记是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
@@ -176,10 +176,10 @@ var datalist = [{
     needxiaojia:0, //该学生是否需要销假，0代表否，1代表需要(体现在查看详情的switch里面。)
     teacheradvice:"",
     secretaryadvice:"",
-    beginTime:"2019-01-21 16:48:38",
-    endTime:"2119-01-21 16:48:38",
-    createTime:"2119-01-21 16:48:38",
-    status: 4,//当前状态
+    beginTime:"2019-01-21 16:48",
+    endTime:"2119-01-21 16:48",
+    createTime:"2119-01-21 16:48",
+    status: 4,//当前状态 0申请中 1已批准 2已拒绝 3已申请销假 4待销假 5已销假
     teacherid: '1152002',//教师id，这个例子代表不是目标老师
     isteacheragreeqingjia:0,//老师是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
     issecretaryagreeqingjia:0,//副书记是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
@@ -202,10 +202,10 @@ var datalist = [{
     needxiaojia:0, //该学生是否需要销假，0代表否，1代表需要(体现在查看详情的switch里面。)
     teacheradvice:"",
     secretaryadvice:"",
-    beginTime:"2019-01-21 16:48:38",
-    endTime:"2119-01-21 16:48:38",
-    createTime:"2119-01-21 16:48:38",
-    status: 4,//当前状态
+    beginTime:"2019-01-21 16:48",
+    endTime:"2119-01-21 16:48",
+    createTime:"2119-01-21 16:48",
+    status: 4,//当前状态 0申请中 1已批准 2已拒绝 3已申请销假 4待销假 5已销假
     teacherid: '1152002',//教师id，这个例子代表不是目标老师
     isteacheragreeqingjia:0,//老师是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
     issecretaryagreeqingjia:0,//副书记是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
@@ -228,10 +228,10 @@ var datalist = [{
     needxiaojia:0, //该学生是否需要销假，0代表否，1代表需要(体现在查看详情的switch里面。)
     teacheradvice:"情况属实，同意请假。已同意， 刘桃丽 2019/1/20 12:50",
     secretaryadvice:"",
-    beginTime:"2019-01-21 16:48:38",
-    endTime:"2019-01-25 16:48:38",
-    createTime:"2119-01-21 16:48:38",
-    status: 4,//当前状态
+    beginTime:"2019-01-21 16:48",
+    endTime:"2019-01-25 16:48",
+    createTime:"2119-01-21 16:48",
+    status: 4,//当前状态 0申请中 1已批准 2已拒绝 3已申请销假 4待销假 5已销假
     teacherid: '1152002',//教师id，这个例子代表不是目标老师
     isteacheragreeqingjia:1,//老师是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
     issecretaryagreeqingjia:0,//副书记是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
@@ -254,10 +254,10 @@ var datalist = [{
     needxiaojia:0, //该学生是否需要销假，0代表否，1代表需要(体现在查看详情的switch里面。)
     teacheradvice:"情况属实，同意请假。已同意， 刘桃丽 2019/1/20 12:50",
     secretaryadvice:"",
-    beginTime:"2019-01-21 16:48:38",
-    endTime:"2019-01-25 16:48:38",
-    createTime:"2119-01-21 16:48:38",
-    status: 4,//当前状态
+    beginTime:"2019-01-21 16:48",
+    endTime:"2019-01-25 16:48",
+    createTime:"2119-01-21 16:48",
+    status: 4,//当前状态 0申请中 1已批准 2已拒绝 3已申请销假 4待销假 5已销假
     teacherid: '1152002',//教师id，这个例子代表不是目标老师
     isteacheragreeqingjia:1,//老师是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
     issecretaryagreeqingjia:0,//副书记是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
@@ -280,10 +280,10 @@ var datalist = [{
     needxiaojia:0, //该学生是否需要销假，0代表否，1代表需要(体现在查看详情的switch里面。)
     teacheradvice:"情况属实，同意请假。已同意， 刘桃丽 2019/1/20 12:50",
     secretaryadvice:"同意请假。  周荣伟 2019/1/21 12:50",
-    beginTime:"2019-01-21 16:48:38",
-    endTime:"2019-01-25 16:48:38",
-    createTime:"2019-01-21 16:48:38",
-    status: 4,//当前状态
+    beginTime:"2019-01-21 16:48",
+    endTime:"2019-01-25 16:48",
+    createTime:"2019-01-21 16:48",
+    status: 4,//当前状态 0申请中 1已批准 2已拒绝 3已申请销假 4待销假 5已销假
     teacherid: '1152002',//教师id，这个例子代表不是目标老师
     isteacheragreeqingjia:1,//老师是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
     issecretaryagreeqingjia:1,//副书记是否同意了请假，0代表没有，1代表有(体现在请假详情模态框的同意按钮上。)
@@ -298,9 +298,9 @@ var datalist = [{
   {
     qingjiabianhao:'XJ001',
     beginTime:'2019/1/15 17:15',
-    endTime:"2019-01-21 16:48:38",
+    endTime:"2019-01-21 16:48",
     status:5,
-    shenpiTime:"2119-01-21 16:48:38",
+    shenpiTime:"2119-01-21 16:48",
     isxiaojia:"是",
   }*/
 
