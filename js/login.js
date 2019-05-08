@@ -1,8 +1,8 @@
 var user = {
     student: {
-        name : "李老狗",
-        usercount : "123",
-        password : "123"
+        name : "郭碧峰",
+        usercount : "201511821511",
+        password : "201511821511"
     },
     teacher: {
         name : "岳川",
@@ -129,7 +129,7 @@ function jiashujulogin(data) {
   {
     case 0:
       //学生
-      if(data.username === '123' && data.password === '123'){
+      if(data.username === '201511821511' && data.password === '201511821511'){
         window.location.href = 'student/index.html';
       }else{
         alert('请检查用户名和密码是否正确，以及是否与身份匹配')

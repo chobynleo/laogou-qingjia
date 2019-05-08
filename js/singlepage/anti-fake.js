@@ -1,4 +1,3 @@
-alert('唯一校验码为001，输入其他的号码都将查询失败')
 function  querycode() {
   $("#queryresult").empty();
   var data = {
@@ -31,25 +30,23 @@ function  querycode() {
     "                            </tr>\n" +
     "                        </table>";
   var err = '未找到相应的电子假条';
-  if ($("#checkcode").val() === '001'){
+  /*if ($("#checkcode").val() === '001'){
     $("#queryresult").append(str);
   }else{
     $("#queryresult").append(err);
-  }
-
-    /*$.ajax({
-      type: "post",
+  }*/
+  var url="http://47.106.247.251:8010/message/studentGetMessage?messageId="
+    +$("#checkcode").val()+"&callback=?";
+    $.jsonp({
       url: url,
-      data: {"checkcode":$("#checkcode").val()},
-      cache: false,
-      async : false,
-      dataType: "json",
-      success: function (data)
+      "success": function (res)
       {
-        var number = data.msg.substr(0, 8)+'****';
-        var person = data.msg.substr(0, 2)+'**';
-        var time = data.msg;
-        var status = data.msg;
+        console.log(res)
+        var data = res.data;
+        var number = data.studentId.substr(0, 8)+'****';
+        var person = data.studentName.substr(0, 2)+'**';
+        var time = data.creatTime;
+        var status = data.status;
         var str = "<table  border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"table\">\n" +
           "\n" +
           "                            <tr class=\"active\">\n" +
@@ -72,8 +69,8 @@ function  querycode() {
         $("#queryresult").append(str);
         //如果为未找到则alert('未找到相应的电子假条')
       },
-      error:function (err) {
-        alert("请求失败！");
+      "error": function(d,msg) {
+        alert("Could not find user "+msg);
       }
-    });*/
+    });
 }

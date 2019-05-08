@@ -278,9 +278,9 @@ $(function () {
 var vm = new Vue({
     el: "#testForm",
     data: {
-
         information: {
             studentId: "",
+            teacherId:"",
             phone: "",
             beginTime: "",
             endTime: "",
@@ -299,36 +299,32 @@ var vm = new Vue({
     },
     methods: {
         submitSignIn: function () {
-
-        	
             $("#testForm").bootstrapValidator('validate');
+            studentId = $("#studentId").val();
             beginTime = document.getElementById('begin').value;
-            endTime = document.getElementById('end').value;console.log(vm);
+            endTime = document.getElementById('end').value;
+            teacherId = document.getElementById('selectteacher').value;
             if ($("#testForm").data('bootstrapValidator').isValid() && JudgeTime(beginTime, endTime)) {
                 vm.information.studentId = studentId;
                 vm.information.beginTime = beginTime;
                 vm.information.endTime = endTime;
-              
+              vm.information.teacherId = teacherId;
+
                 var information = {
                     "studentId": vm.information.studentId,
+                    "teacherId":vm.information.teacherId,
                     "phone": vm.information.phone,
                     "beginTime": vm.information.beginTime,
                     "endTime": vm.information.endTime,
-                    "number": vm.information.number,
-                    "reason": vm.information.reason
+                    "clazzNum": vm.information.number,
+                    "reason": vm.information.reason,
+
                 };
                 console.log('-------表单信息-------')
-              console.log(information.studentId);
-              console.log(information.phone);
-              console.log(information.beginTime);
-              console.log(information.endTime);
-              console.log(information.number);
-              console.log(information.reason);
-                
                 console.log(information);
                 
                 $.ajaxFileUpload({
-                    url: "../student/leave",
+                    url: "http://47.106.247.251:8010/message/insertMessage",
                     type: "POST",
                     secureuri: false, // 是否需要安全协议，一般设置为false
                     fileElementId: ['file'],
@@ -337,6 +333,8 @@ var vm = new Vue({
                     async:false,
 
                     success: function (result) {
+                        console.log(1)
+                        console.log(result)
                         result = JSON.parse(result);
                         alert(result);
                         window.location.href = "http://localhost:8080/YibanLeaveSystem/YibanLeaveSystem/views/zqu/student/record.htm";
@@ -354,7 +352,9 @@ var vm = new Vue({
                             });
                         }
 
-                    }
+                    },error:function (err) {
+                        console.log(err)
+                  }
 
                 });
 
