@@ -40,23 +40,57 @@ $(function() {
       if ($("#username").val() !== "" && $("#password").val() !== "" && checkbox) {
         var data = {"username":$("#username").val(),"password":$("#password").val(),"checkbox":checkboxid}
         console.log(data);
-        //这里来个假数据跳转
-        jiashujulogin(data);
         $.ajax({
+          //几个参数需要注意一下
+          type: "POST",//方法类型
+          dataType: "json",//预期服务器返回的数据类型
+          url: "http://47.106.247.251:8010/login" ,//url
+          data: $('#form1').serialize(),
+          success: function (result) {
+            console.log(result);//打印服务端返回的数据(调试用)
+            if (result.code === '200') {
+              switch(result.data.data.role) {
+                case 'student':
+                  window.location.href = './student/index.html';
+                  break;
+                case 'teacher':
+                  window.location.href = './teacher/jqgrid.html';
+                  break;
+                case 'faculty_teacher':
+                  window.location.href = './secretary/jqgrid.html';
+                  break;
+              }
+              window.sessionStorage.setItem("userId", result.data.data.userId);
+            }else if(result.code === '500'){
+              alert(result.msg);
+            }
+            ;
+          },
+          error : function() {
+            alert("异常！");
+          }
+        });
+        //这里来个假数据跳转
+        /*jiashujulogin(data);*/
+        /*$.ajax({
           type: "post",
-          url: url,
-          data: {"username":$("#username").val(),"password":$("#password").val(),"checkbox":checkboxid},
+          url: "http://47.106.247.251:8010/login",
+          data: {"username":$("#username").val(),"password":$("#password").val()},
           cache: false,
           async : false,
           dataType: "json",
           success: function (msg)
           {
-            window.location.href = ""
+            if(msg.code === 200){
+              window.location.href = ""
+            }else{
+              alert(msg.msg)
+            }
           },
           error:function (err) {
             alert("请求失败！");
           }
-        });
+        });*/
       }else{
         alert("请填写完整的账号信息后登录!");
       }

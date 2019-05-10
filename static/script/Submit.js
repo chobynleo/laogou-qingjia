@@ -322,36 +322,35 @@ var vm = new Vue({
                 };
                 console.log('-------表单信息-------')
                 console.log(information);
-                
+
+              /*$.ajax({
+                type: "post",
+                /!*url: "http://47.106.247.251:8010/teacher/selectTeacherForStudent?studentUserId="+studentId,*!/
+                url: "http://47.106.247.251:8010/message/insertMessage",
+                data: information,
+                cache: false,
+                async : false,
+                dataType: "application/json",
+                success: function (msg)
+                {
+                  console.log(msg)
+
+                },
+                error:function (err) {
+                  alert("请求失败！");
+                }
+              });*/
                 $.ajaxFileUpload({
                     url: "http://47.106.247.251:8010/message/insertMessage",
                     type: "POST",
                     secureuri: false, // 是否需要安全协议，一般设置为false
                     fileElementId: ['file'],
                     data: information,
-                    dataType: "text",
+                    dataType: "json",
                     async:false,
-
                     success: function (result) {
-                        console.log(1)
-                        console.log(result)
-                        result = JSON.parse(result);
-                        alert(result);
-                        window.location.href = "http://localhost:8080/YibanLeaveSystem/YibanLeaveSystem/views/zqu/student/record.htm";
-                        //result.success == true
-                        if (result.success)
-                            layer.alert(result.string, {
-                                icon: 1
-
-                            });
-                        else {
-                            window.location.href = "http://localhost:8080/YibanLeaveSystem/YibanLeaveSystem/views/zqu/student/record.htm";
-                            layer.alert(result.msg, {
-                                icon: 2
-
-                            });
-                        }
-
+                        console.log(result);
+                        window.location.href = "./record.html";
                     },error:function (err) {
                         console.log(err)
                   }

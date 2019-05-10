@@ -6,34 +6,62 @@ var student = {
   select_teacher:['张艺13420120501','杨福光13420120501','岳川13420120501'],
   teacherId:['20151000','20151001','20151002']
 };
+/*
 $('#username').html(student.Name);
 $('#studentId').val(student.studentId);
 $('#Name').val(student.Name);
 $('#department').val(student.department);
 $('#className').val(student.className);
+*/
 
-for (var i=0;i<student.select_teacher.length;i++){
-  $("select[name='select-teacher']").append("<option value="+ student.teacherId[i]+">"+ student.select_teacher[i]+"</option>");
-}
-
-
-
-/*
+console.log(window.sessionStorage.getItem("userId").replace("\"",""))
+var studentId = window.sessionStorage.getItem("userId").replace("\"","");
 $.ajax({
   type: "get",
-  url: url,
+  url: "http://47.106.247.251:8010/user/getUserDTO?userId="+studentId,
   data: {},
   cache: false,
   async : false,
   dataType: "json",
   success: function (msg)
   {
-    $('#studentId').val(msg.studentId);
-    $('#Name').val(msg.studentId);
-    $('#department').val(msg.studentId);
-    $('#className').val(msg.studentId);
+    console.log(msg)
+    $('#studentId').val(msg.data.userId);
+    $('#Name').val(msg.data.userName);
+    $('#department').val(msg.data.facultyName);
+    $('#className').val(msg.data.clazzName);
+    $.ajax({
+      type: "get",
+      url: "http://47.106.247.251:8010/teacher/selectTeacherForStudent?studentUserId="+studentId,
+      /*url: "http://47.106.247.251:8010/teacher/selectTeacherForStudent",*/
+      data: {},
+      cache: false,
+      async : false,
+      dataType: "text/html",
+      success: function (msg)
+    {
+      console.log(msg);
+      var str = $(msg).find("body").text();//获取返回的字符串
+      var json = $.parseJSON(str);//把字符串转化为json对象
+      console.log(json)
+      var teacherArray = msg.data;
+      for (var i=0;i<msg.data.length;i++){
+        $("select[name='select-teacher']").append("<option value="+ teacherArray[i].userId+">"+ teacherArray[i].name+teacherArray[i].phone+"</option>");
+      }
+    },
+      error:function (err) {
+        alert("请求失败！");
+      }
+    });
   },
   error:function (err) {
     alert("请求失败！");
   }
-});*/
+});
+
+
+
+
+
+
+
