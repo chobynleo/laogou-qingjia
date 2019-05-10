@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09af525c-f67e-4df1-9bd5-c677dd452dad" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/singlepage/anti-fake.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/singlepage/anti-fake.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/student/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/student/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/favicon.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/script/Submit.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/script/Submit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/zqu/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/zqu/login.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -42,14 +37,14 @@
         <counts>
           <entry key="css" value="91" />
           <entry key="html" value="1590" />
-          <entry key="js" value="6899" />
+          <entry key="js" value="6901" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="91" />
           <entry key="HTML" value="1590" />
-          <entry key="JavaScript" value="6899" />
+          <entry key="JavaScript" value="6901" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -79,8 +74,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/student/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="39" column="28" lean-forward="true" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+            <state relative-caret-position="375">
+              <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -88,8 +83,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/script/Submit.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="342" column="34" lean-forward="true" selection-start-line="342" selection-start-column="34" selection-end-line="342" selection-end-column="34" />
+            <state relative-caret-position="402">
+              <caret line="348" column="42" lean-forward="true" selection-start-line="348" selection-start-column="42" selection-end-line="348" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -193,9 +188,9 @@
         <option value="$PROJECT_DIR$/css/login.css" />
         <option value="$PROJECT_DIR$/js/singlepage/anti-fake.js" />
         <option value="$PROJECT_DIR$/js/login.js" />
-        <option value="$PROJECT_DIR$/static/script/Submit.js" />
         <option value="$PROJECT_DIR$/views/zqu/login.html" />
         <option value="$PROJECT_DIR$/js/student/index.js" />
+        <option value="$PROJECT_DIR$/static/script/Submit.js" />
       </list>
     </option>
   </component>
@@ -332,12 +327,12 @@
       <workItem from="1557320991582" duration="4742000" />
       <workItem from="1557373376408" duration="1847000" />
       <workItem from="1557398838817" duration="3905000" />
-      <workItem from="1557473798336" duration="10916000" />
+      <workItem from="1557473798336" duration="11731000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111381000" />
+    <option name="totallyTimeSpent" value="112196000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -535,13 +530,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/script/Submit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="342" column="34" lean-forward="true" selection-start-line="342" selection-start-column="34" selection-end-line="342" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/zqu/student/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -562,10 +550,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/script/Submit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="348" column="42" lean-forward="true" selection-start-line="348" selection-start-column="42" selection-end-line="348" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/student/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="39" column="28" lean-forward="true" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+        <state relative-caret-position="375">
+          <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
         </state>
       </provider>
     </entry>

@@ -37,13 +37,10 @@ $.ajax({
       data: {},
       cache: false,
       async : false,
-      dataType: "text/html",
+      dataType: "json",
       success: function (msg)
     {
-      console.log(msg);
-      var str = $(msg).find("body").text();//获取返回的字符串
-      var json = $.parseJSON(str);//把字符串转化为json对象
-      console.log(json)
+      console.log(msg.data)
       var teacherArray = msg.data;
       for (var i=0;i<msg.data.length;i++){
         $("select[name='select-teacher']").append("<option value="+ teacherArray[i].userId+">"+ teacherArray[i].name+teacherArray[i].phone+"</option>");
