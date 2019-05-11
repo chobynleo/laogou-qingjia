@@ -26,6 +26,7 @@ $.ajax({
   success: function (msg)
   {
     console.log(msg)
+    $('#username').html(student.Name);
     $('#studentId').val(msg.data.userId);
     $('#Name').val(msg.data.userName);
     $('#department').val(msg.data.facultyName);

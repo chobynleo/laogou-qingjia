@@ -3,6 +3,7 @@ var beginTime; //定义请假开始时间变量
 
 var endTime; //定义请假结束时间变量
 
+var isLongtime=0;//请假时长 0表示小于3天，1表示大于3天小于15天
 //判断文件是否过大
 // function isTooBig() {
 //     if (document.getElementById("file").files[0].size / 1024 / 1024 > 5) {
@@ -144,14 +145,17 @@ function JudgeTime(begin, end) {
 	    //将日期和时间两个部分计算出来的差值相加，即得到两个时间相减后的分钟数
 	    var minutes = m + n;
 	    //检测时间
-	    if (minutes >= 21600) {
+	    if (minutes > 21600) {isLongtime
 	        layer.msg("暂不支持大于 15 天的请假，请咨询辅导员", {icon: 2});
 	        return false;
 	    } else if ($.trim(begin) == "" || $.trim(end) == "" || begin == null || end == null) {
-	        layer.msg("开始或截止时间不能为空", {icon: 2});
-	
-	        return false;
-	    } else
+        layer.msg("开始或截止时间不能为空", {icon: 2});
+
+        return false;
+      } else if (minutes <= 21600 && minutes>= 4320 ) {
+        isLongtime = 1;
+        return true;
+      }else
 	        return true;
 
 	}
@@ -304,11 +308,12 @@ var vm = new Vue({
             beginTime = document.getElementById('begin').value;
             endTime = document.getElementById('end').value;
             teacherId = document.getElementById('selectteacher').value;
+            studentName = document.getElementById('Name').value;
             if ($("#testForm").data('bootstrapValidator').isValid() && JudgeTime(beginTime, endTime)) {
                 vm.information.studentId = studentId;
                 vm.information.beginTime = beginTime;
                 vm.information.endTime = endTime;
-              vm.information.teacherId = teacherId;
+                vm.information.teacherId = teacherId;
 
                 var information = {
                     "studentId": vm.information.studentId,
@@ -318,7 +323,12 @@ var vm = new Vue({
                     "endTime": vm.information.endTime,
                     "clazzNum": vm.information.number,
                     "reason": vm.information.reason,
-
+                    "studentName":studentName,
+                    "isLongtime	":isLongtime,
+                    "levelOneSign":0,
+                    "levelTwoSign":0,
+                    "status":0,
+                    "isReportback":0
                 };
                 console.log('-------表单信息-------')
                 console.log(information);
@@ -346,12 +356,15 @@ var vm = new Vue({
                     secureuri: false, // 是否需要安全协议，一般设置为false
                     fileElementId: ['file'],
                     data: information,
-                    dataType: "text/html",
+
+                    dataType:"text/html",
                     async:false,
                     success: function (result) {
+                      console.log(1);
                       console.log(result);
                       var str = $(result).find("body").text();//获取返回的字符串
                       var json = $.parseJSON(str);//把字符串转化为json对象
+                      console.log(json);
                         window.location.href = "./record.html";
                     },error:function (err) {
                         console.log(err)
