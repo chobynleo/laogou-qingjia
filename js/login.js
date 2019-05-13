@@ -61,6 +61,7 @@ $(function() {
                   break;
               }
               window.sessionStorage.setItem("userId", result.data.data.userId);
+
             }else if(result.code === '500'){
               alert(result.msg);
             }

@@ -1,6 +1,6 @@
 var teacher = {
   studentId:'201511701224',
-  Name:'周荣伟',
+  Name:'  ',
   department:'数学与计算机学院',
   select_teacher:['张艺13420120501','杨福光13420120501','岳川13420120501'],
   teacherid: '001'//教师id
@@ -295,8 +295,46 @@ var datalist = [{
     xiaojiastatus:2//销假状态 0代表未申请 1代表申请中 2代表销假已完成
   }
 ];
+var banjilist = [];
+var teacherId = window.sessionStorage.getItem("userId").replace("\"","");
+console.log(teacherId)
+$.ajax({
+  type: "get",
+  url: "http://47.106.247.251:8010/user/getUserDTO?userId="+teacherId,
+  data: {},
+  cache: false,
+  async : false,
+  dataType: "json",
+  success: function (msg)
+  {
 
+    console.log(msg)
+    $('#username').html(msg.data.userName);
+    window.sessionStorage.setItem("username", msg.data.userName);
+    $.ajax({
+      type: "get",
+      url: "http://47.106.247.251:8010/message/facultyGetMessagePages?facultyUserId="+teacherId+'&pageNum=1&pageSize=10',
+      data: {},
+      cache: false,
+      async : false,
+      dataType: "json",
+      success: function (msg)
+      {
+        console.log(msg)
+        datalist = msg.data;
+        /*console.log(datalist.object.beginTime)*/
+        /*console.log(row)*/
 
+      },
+      error:function (err) {
+        alert("请求失败！");
+      }
+    });
+  },
+  error:function (err) {
+    alert("请求失败！");
+  }
+});
 
 var yibanId = document.getElementById('dataBox').innerHTML;
 
@@ -337,6 +375,7 @@ $(function () {
     idField: "studentId",
     showRefresh: false,                  //是否显示刷新按钮
     showExport: false,
+    maintainSelected : true,
     smartDisplay: true,
     searchOnEnterKey: true,
     searchAlign: 'right',
@@ -392,8 +431,8 @@ $(function () {
       },
 
       {
-        field: 'name',
-        name: 'name',
+        field: 'studentName',
+        name: 'studentName',
         title: '姓名',
         align:"center",
         edit:false,
@@ -414,6 +453,34 @@ $(function () {
         title: '班级',
         align:"center",
         edit:false,
+        formatter: function(value,row, index) {
+          let ClassName2='';
+          console.log(row)
+          $.ajax({
+            type: "get",
+            url: "http://47.106.247.251:8010/message/studentGetMessage?messageId="+row.messageId,
+            data: {},
+            cache: false,
+            async : false,
+            dataType: "json",
+            success: function (msg)
+            {
+              banjilist.push(msg.data)
+              if(msg.data){
+                console.log(msg.data.className);
+                ClassName2 = msg.data.className;
+                yuanxi = msg.data.facultyName;
+                banji = msg.data.className;
+              }
+
+              /!*console.log(msg.data.className)*!/
+            },
+            error:function (err) {
+              alert("请求失败！");
+            }
+          });
+          return ClassName2;
+        }
       },
 
       {
@@ -431,7 +498,7 @@ $(function () {
         name:'beginTime',
         title:'开始时间',
         align:"center",
-        formatter:beginTimeFormartter
+        /*formatter:beginTimeFormartter*/
       },
 
       {
@@ -439,15 +506,15 @@ $(function () {
         name:'endTime',
         title:'截止时间',
         align:"center",
-        formatter:endTimeFormartter
+        /*formatter:endTimeFormartter*/
       },
 
       {
-        field: 'createTime',
-        name:'createTime',
+        field: 'creatTime',
+        name:'creatTime',
         title:'申请时间',
         align:"center",
-        formatter:endTimeFormartter
+        /*formatter:endTimeFormartter*/
       },
 
       {
@@ -458,10 +525,10 @@ $(function () {
         formatter : function(value,row, index) {
           // var strHtml = '&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" title="查看或修改" alt="查看或修改" id="editButton" ><i class="icon-edit icon-white"></i></a>';
           //操作里面的销假确认
-          var isclick = '';
-          /*if (row.isxiaojia === 1){
+          var isclick = 'disabled';
+          if (row.status === '4' || row.status === '5'||row.status === '3'){
             isclick = '';
-          }*/
+          }
           //console.log(row);
           //解决拼接字符串用到的双引号和json字符串中的双引号冲突
           //var info = JSON.stringify(row);
@@ -500,7 +567,7 @@ $("#switchbox").bootstrapSwitch({
       for(var i=0;i<datalist.length;i++){
         //时间的差值
         var timeval = returntimeval(datalist[i].beginTime,datalist[i].endTime);
-        if(3<= parseInt(timeval) && parseInt(timeval) <= 15 && datalist[i].isteacheragreeqingjia){
+        if(3<= parseInt(timeval) && parseInt(timeval) <= 15 && datalist[i].levelOneSign === 1){
           mylist.push(datalist[i])
         }
       }
@@ -618,31 +685,64 @@ window.operateEvents = {
 
 //打开 查看详情 模态框
 function showmodal(row) {
-  console.log('该条信息的请假编号为：'+row.jiatiaoid);
-
-  $('#dcname').val(row.department+' '+row.className);
-  $('#nameid').val(row.name+' '+row.studentId);
+  console.log(row);
+  var targetteacher = '';
+  $.ajax({
+    type: "get",
+    url: "http://47.106.247.251:8010/teacher/getTeacherList?userId="+row.teacherId,
+    data: {},
+    cache: false,
+    async : false,
+    dataType: "json",
+    success: function (msg)
+    {
+      console.log(msg.data)
+      targetteacher = msg.data[0].name;
+    },
+    error:function (err) {
+      alert("请求失败！");
+    }
+  });
+  var thisclassName='';
+  var thisfacultyName='';
+  console.log(banjilist)
+  for (var i=0;i<banjilist.length;i++){
+    if (banjilist[i].messageId === row.messageId){
+      thisfacultyName = banjilist[i].facultyName;
+      thisclassName = banjilist[i].className;
+    }
+  }
+  var username = window.sessionStorage.getItem("username");
+  $('#dcname').val(thisfacultyName+' '+thisclassName);
+  $('#nameid').val(row.studentName+' '+row.studentId);
   $('#time').val(row.beginTime+'-'+row.endTime);
-  $('#jieshu').val(row.jieshu);
+  $('#jieshu').val(row.clazzNum);
   $('#phone').val(row.phone);
   $('#status').val(returnstatusval(row.status));
-  $('#targetteacher').val(row.targetteacher);
-  $('#jiatiaoid').val(row.jiatiaoid);
+  $('#targetteacher').val(targetteacher);
+  $('#jiatiaoid').val(row.messageId);
   $('#reason').val(row.reason);
-  $('#teacheradvice').val(row.teacheradvice);
-  $('#secretaryadvice').val(row.secretaryadvice);
+  $('#teacheradvice').val(row.levelOneComment + '  '+ targetteacher + '  ' +  row.levelOneTime);
+  $('#secretaryadvice').val(row.levelTwoComment);
+
+  $('#down').attr("href",row.fileUrl);
+  if(row.fileUrl === "" || row.fileUrl === "_"||row.fileUrl === " " ){
+    row.fileUrl = 'javascript:void(0);'
+    $('#down').attr("href",row.fileUrl);
+    $('#down').html('无请假文件');
+  }
 
   //清空'同意'，'拒绝'按钮
   $('#secretaryadvicebutton').empty();
   //是否需要出现2级审批意见的按钮
-  if(row.secretaryadvice === ""){
+  if(row.levelTwoSign === 0){
     $('#secretaryadvice').attr('disabled',true)
     //副书记意见为空
-    if(teacher.teacherid !== row.teacherid){
+    if(1){
       //这里表示副书记不是该假条的目标教师
       //填充是否需要销假 switch
       $('#isneedxiaojia').empty();
-      if(row.needxiaojia){
+      if(row.isReportback === 1){
         //需要销假
         var str = '<span class="form-control" disabled>是</span>';
         $('#isneedxiaojia').append(str)
@@ -653,16 +753,16 @@ function showmodal(row) {
       }
       //时间的差值
       var timeval = returntimeval(row.beginTime,row.endTime);
-      if(3<= parseInt(timeval) && parseInt(timeval) <= 15 && row.isteacheragreeqingjia){
+      if(3<= parseInt(timeval) && row.levelOneSign === 1 && (row.status === 0||row.status === '0')){
         //需要插入'同意'，'拒绝'按钮
-        var str = '<button type="button" class="btn btn-success" id="agree" onclick="agreebutton()" style="margin-right: 15px;" data-dismiss="modal">\t<i class="icon-ok"></i> 同意</button>\n' +
-          '\t\t\t\t\t\t\t\t\t\t\t\t<button type="button" class="btn btn-warning" id="reject" onclick="rejectbutton()" data-dismiss="modal" ><i class="icon-remove"></i>拒绝</button>'
+        var str = '<button type="button" class="btn btn-success" id="agree" onclick="agreebutton(' + JSON.stringify(row).replace(/"/g, '&quot;') + ')" style="margin-right: 15px;" data-dismiss="modal">\t<i class="icon-ok"></i> 同意</button>\n' +
+          '\t\t\t\t\t\t\t\t\t\t\t\t<button type="button" class="btn btn-warning" id="reject" onclick="rejectbutton(' + JSON.stringify(row).replace(/"/g, '&quot;') + ')" data-dismiss="modal" ><i class="icon-remove"></i>拒绝</button>'
         $('#secretaryadvicebutton').append(str);
         //该栏书记意见能够填写
         $('#secretaryadvice').attr('disabled',false)
       }else{
         //提示副书记意见为啥不能够填写
-        $('#secretaryadvice').val('该教师尚未同意批假，该栏目不能填写')
+        $('#secretaryadvice').val('该假条不需要您的审批，该栏目不能填写')
       }
       }else{
         //这里表示副书记是该假条的目标教师,一般不会出现这种情况，故忽视
@@ -670,9 +770,9 @@ function showmodal(row) {
   }else{
     //副书记意见不为空，即不可编辑状态
     $('#secretaryadvice').attr('disabled',true)
-    if(teacher.teacherid !== row.teacherid) {
+    if(teacherId !== row.teacherId) {
       //这里表示副书记不是该假条的目标教师
-      $('#secretaryadvice').val(row.secretaryadvice);
+      $('#secretaryadvice').val(row.levelTwoComment+ ' ' + username + '  ' + row.levelTwoTime );
     }
   }
   //初试请求数据
@@ -711,39 +811,95 @@ function showmodal(row) {
   });*/
 }
 //2级审批意见的同意按钮
-function agreebutton(){
+function agreebutton(row){
+  console.log(row)
+  var messageId = row.messageId;
   var secretaryadvice = $('#secretaryadvice').val();
   //需设置issecretaryagreeqingjia为1
   console.log("副书记意见："+secretaryadvice);
   //AJAX
+  var data = {messageId:messageId,facultyUserId:teacherId,levelTwoComment:secretaryadvice,levelTwoSign:1};
+  console.log(data)
+  $.ajax({
+    type: "put",
+    url: "http://47.106.247.251:8010/message/faucltyUpdateMessageById",
+    data: data,
+    cache: false,
+    async : false,
+    dataType: "json",
+    success: function (msg)
+    {
+      console.log(msg)
+
+      alert('操作成功')
+      window.location.reload();
+    },
+    error:function (err) {
+      alert("请求失败！");
+    }
+  });
+
   alert('操作成功')
 }
 
 //2级审批意见的拒绝按钮
-function rejectbutton(){
+function rejectbutton(row){
   var secretaryadvice = $('#secretaryadvice').val();
-  //需设置issecretaryagreeqingjia为1
+  //需设置issecretaryagreeqingjia为2
   console.log("副书记意见："+secretaryadvice);
-  //AJAX
-  alert('操作成功')
+  var messageId = row.messageId;
+  console.log(row)
+  //需设置isteacheragreeqingjia为0
+  var data = {messageId:messageId,facultyUserId:teacherId,levelTwoComment:secretaryadvice,levelTwoSign:2};;
+  console.log(data)
+  $.ajax({
+    type: "put",
+    url: "http://47.106.247.251:8010/message/faucltyUpdateMessageById",
+    data: data,
+    cache: false,
+    async : false,
+    dataType: "json",
+    success: function (msg)
+    {
+      console.log(msg)
+
+      alert('操作成功')
+      window.location.reload();
+    },
+    error:function (err) {
+      alert("请求失败！");
+    }
+  });
+
 }
 
 
 //销假确认模态框的事件
 function showxiaojiamodal(row){
-  $('#xiaojiadcname').val(row.department+' '+row.className);
-  $('#xiaojianameid').val(row.name+' '+row.studentId);
+
+  var thisclassName='';
+  var thisfacultyName='';
+  console.log(banjilist)
+  for (var i=0;i<banjilist.length;i++){
+    if (banjilist[i].messageId === row.messageId){
+      thisfacultyName = banjilist[i].facultyName;
+      thisclassName = banjilist[i].className;
+    }
+  }
+
+  $('#xiaojiadcname').val(thisclassName+' '+thisfacultyName);
+  $('#xiaojianameid').val(row.studentName+' '+row.studentId);
   $('#xiaojiatime').val(row.beginTime+'-'+row.endTime);
   $('#xiaojiaphone').val(row.phone);
-  $('#xiaojiaqingqiu').val(row.xiaojiaqingqiu);
+  $('#xiaojiaqingqiu').val(row.reportbackSubmitComment);
   $('#querenrendiv').hide();
   if(teacher.teacherid !== row.teacherid){
     //这里表示副书记不是该假条的目标教师
     //目标老师有没有进行销假确认，0代表没有，1代表有
-    if(parseInt(row.isteacherxiaojiaqueren)){
+    if(parseInt(row.status === 5)){
       //目标老师已进行销假确认
-      $('#querenrendiv').show();
-      $('#querenren').val(row.querenrenmsg)
+      /*$('#querenrendiv').show();
+      $('#querenren').val(row.querenrenmsg)*/
     }else{
       //目标老师未进行销假确认
 
@@ -806,15 +962,41 @@ $('#submitEdit').click(function(){
 
 
 
-//下载学生请假证明文件
+/*//下载学生请假证明文件
 $("#down").click(function(){
   var id=$("#Iid").val();
   $('#Edit').modal('hide');
   // "/YibanLeaveSystem/Toteacher/download/"+id;
   window.location.href="../teacher/download/"+id;
-});
+});*/
 
 //打印数据成Excel表
+$("#printExcel").click(function(){
+  var messageidlist = [];
+  $.map($('#teacherTable').bootstrapTable('getSelections'), function (row) {
+    console.log(row)
+
+    messageidlist.push(row.messageId)
+
+  })
+  console.log(messageidlist);
+  var url = "http://47.106.247.251:8010/getMessageExcle?messageIdList=";
+  for (var i = 0; i<messageidlist.length;i++)
+  {
+    if(i !== messageidlist.length-1){
+      url  = url + messageidlist[i]+'%2C';
+    }else{
+      url  = url + messageidlist[i] + '&fileName=excel'
+    }
+
+  }
+  console.log(222222)
+  console.log(url)
+  window.location.href = url;
+
+})
+
+/*//打印数据成Excel表
 $("#printExcel").click(function(){
   var Data= $("#teacherTable").bootstrapTable("getSelections");
   if(Data=="" ||Data == null)
@@ -830,7 +1012,7 @@ $("#printExcel").click(function(){
       console.log(Data[i].id);
     }
 
-    /*window.location.href="/YibanLeaveSystem/Toteacher/downloadExcel?List="+List;*/
+    /!*window.location.href="/YibanLeaveSystem/Toteacher/downloadExcel?List="+List;*!/
     // "/YibanLeaveSystem/Toteacher/downloadExcel/";
 
     var url="../teacher/downloadExcel";
@@ -839,7 +1021,7 @@ $("#printExcel").click(function(){
     form.appendTo('body').submit().remove();
 
   }
-})
+})*/
 
 
 //查询按钮事件

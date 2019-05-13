@@ -26,11 +26,14 @@ $.ajax({
   success: function (msg)
   {
     console.log(msg)
-    $('#username').html(student.Name);
+    $('#username').html(msg.data.userName);
     $('#studentId').val(msg.data.userId);
     $('#Name').val(msg.data.userName);
     $('#department').val(msg.data.facultyName);
     $('#className').val(msg.data.clazzName);
+    window.sessionStorage.setItem("username", msg.data.userName);
+    window.sessionStorage.setItem("facultyName", msg.data.facultyName);
+    window.sessionStorage.setItem("clazzName", msg.data.clazzName);
     $.ajax({
       type: "get",
       url: "http://47.106.247.251:8010/teacher/selectTeacherForStudent?studentUserId="+studentId,
@@ -58,7 +61,8 @@ $.ajax({
 });
 
 
-
+$('#begin').attr('autocomplete','off');
+$('#end').attr('autocomplete','off');
 
 
 

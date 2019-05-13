@@ -356,15 +356,8 @@ var vm = new Vue({
                     secureuri: false, // 是否需要安全协议，一般设置为false
                     fileElementId: ['file'],
                     data: information,
-
-                    dataType:"text/html",
                     async:false,
                     success: function (result) {
-                      console.log(1);
-                      console.log(result);
-                      var str = $(result).find("body").text();//获取返回的字符串
-                      var json = $.parseJSON(str);//把字符串转化为json对象
-                      console.log(json);
                         window.location.href = "./record.html";
                     },error:function (err) {
                         console.log(err)

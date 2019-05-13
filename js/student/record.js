@@ -6,7 +6,8 @@ var student = {
   select_teacher:['张艺13420120501','杨福光13420120501','岳川13420120501']
 };
 $('#username').html(student.Name);
-
+//假条id全局变量
+var jiatiaoaidi = '';
 var datalist = [{
   name:'李老狗',
   className:'软件1152',
@@ -294,6 +295,28 @@ var datalist = [{
     xiaojiastatus:2//销假状态 0代表未申请 1代表申请中 2代表销假已完成
   }
 ];
+var studentId = window.sessionStorage.getItem("userId").replace("\"","");
+
+$.ajax({
+  type: "get",
+  url: "http://47.106.247.251:8010/message/getMessageList?studentId="+studentId,
+  /*url: "http://47.106.247.251:8010/teacher/selectTeacherForStudent",*/
+
+  data: {},
+  cache: false,
+  async : false,
+  dataType: "json",
+  success: function (msg)
+  {
+    datalist = msg.data;
+    var username = window.sessionStorage.getItem("username").replace("\"","");
+    $('#username').html(username);
+
+  },
+  error:function (err) {
+    alert("请求失败！");
+  }
+});
 /*
   {
     qingjiabianhao:'XJ001',
@@ -331,6 +354,8 @@ var cleanTime = function(str)
 };
 
 var yibanId = document.getElementById('dataBox').innerHTML;
+
+
 $(function () {
   $('#studentTable').bootstrapTable({
     method:'GET',
@@ -371,8 +396,8 @@ $(function () {
 
     columns: [
       {
-        field:'jiatiaoid',
-        name:'jiatiaoid',
+        field:'messageId',
+        name:'messageId',
         title:'请假编号',
         align:"center",
         edit:false
@@ -401,11 +426,27 @@ $(function () {
         }
       },
       {
-        field: 'createTime',
-        name:'createTime',
+        field: 'levelOneTime',
+        name:'levelOneTime',
         title:'审批时间',
         align:"center",
-        formatter:endTimeFormartter
+        formatter : function(value,row, index) {
+          if (row.levelOneTime === null)
+          {
+            //一级未审批
+            return ''
+          }else if (row.isLongtime === 0)
+          {
+            //没有长假标记
+            return row.levelOneTime;
+          }else if (row.isLongtime === 1)
+          {
+            //有长假标记
+            return row.levelTwoTime;
+          }
+
+
+        }
       },
       {
         field: 'isxiaojia',
@@ -413,7 +454,7 @@ $(function () {
         title:'是否销假',
         align:"center",
         formatter : function(value,row, index) {
-          if(value){
+          if(row.isReportback === 1){
             //value 1 是
             return '<span>是</span>'
           }else{
@@ -432,7 +473,7 @@ $(function () {
           var isclick = 'disabled';
           var time = compareTime(row.endTime);
           //①该次请假需要销假②当前时间>请假截至时间两个条件时该按钮为正常可点击状态，其他情况为不可点击状态。
-          if (row.isxiaojia ===1 && time){
+          if (row.isReportback ===1 && time){
             isclick = '';
           }
           var strHtml = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Detail1" style="margin-right: 15px" onclick="showmodal(' + JSON.stringify(row).replace(/"/g, '&quot;') + ')"> 查看详情</button><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#xiaojiamodal"'  +isclick +' onclick="showxiaojiamodal(' + JSON.stringify(row).replace(/"/g, '&quot;') + ')">销假确认</button>';
@@ -546,22 +587,68 @@ var statusFormatter = function(value) {
 
 //打开 查看详情 模态框
 function showmodal(row) {
-  console.log('点击的请假编号为：'+row.qingjiabianhao);
-  console.log(row);
-  $('#dcname').val(row.department+' '+row.className);
-  $('#nameid').val(row.name+' '+row.studentId);
+  console.log('点击的请假编号为：'+row.messageId);
+  jiatiaoaidi = row.messageId;
+  var teachername ="";
+  var shujiname ="";
+  $.ajax({
+    type: "get",
+    url: "http://47.106.247.251:8010/message/studentGetMessage?messageId="+row.messageId,
+    cache: false,
+    async : false,
+    dataType: "json",
+    success: function (msg)
+    {
+      teachername  =  msg.data.teacherName;
+      shujiname  =  msg.data.facultyTeacher;
+    },
+    error:function (err) {
+      alert("请求失败！");
+    }
+  });
+
+
+
+ var facultyName =  window.sessionStorage.getItem("facultyName");
+  var clazzName =  window.sessionStorage.getItem("clazzName");
+  var username = window.sessionStorage.getItem("username");
+
+  $('#dcname').val(facultyName+' '+clazzName);
+  $('#nameid').val(username+' '+row.studentId);
   $('#time').val(row.beginTime+'-'+row.endTime);
-  $('#jieshu').val(row.jieshu);
+  $('#jieshu').val(row.clazzNum);
   $('#phone').val(row.phone);
   $('#status').val(returnstatusval(row.status));
-  $('#targetteacher').val(row.targetteacher);
-  $('#jiatiaoid').val(row.jiatiaoid);
+  $('#targetteacher').val(teachername);
+  $('#jiatiaoid').val(row.messageId);
   $('#reason').val(row.reason);
   $('#teacheradvice').val(row.teacheradvice);
   $('#secretaryadvice').val(row.secretaryadvice);
 
 
-  if(row.status === 1 || row.status === 3 || row.status === 4 || row.status === 5){
+  if(row.fileUrl === "" || row.fileUrl === "_"||row.fileUrl === " " ){
+    $('#download').html('无请假文件')
+    row.fileUrl = 'javascript:void(0);'
+  }
+  $('#download').attr("href",row.fileUrl);
+
+  //辅导员/班主任意见文本框
+  if (row.levelOneComment === null && row.levelOneSign === 0)
+  {
+    $('#teacheradvice').val(' ');
+  }else{
+    $('#teacheradvice').val(row.levelOneComment + '  ' +  teachername +  row.levelOneTime );
+  }
+
+  //书记意见文本框
+  if (row.levelTwoComment === null && row.levelTwoSign === 0)
+  {
+    $('#secretaryadvice').val(' ');
+  }else{
+    $('#secretaryadvice').val(row.levelTwoComment + '  ' +  shujiname +  row.levelTwoTime );
+  }
+
+  if(!(row.status === 1 || row.status === 3 || row.status === 4 || row.status === 5)){
     $('#dayin').attr("disabled",false);
   }else{
     $('#tip').show();
@@ -605,17 +692,52 @@ function showmodal(row) {
 //打开 期满销假 模态框
 function showxiaojiamodal(row) {
   console.log('点击的请假编号为：'+row.jiatiaoid);
-  var status3msg = '岳川 2019/3/6 10：08';
-  console.log(row.xiaojiastatus)
-  switch(row.xiaojiastatus)
+  var teachername ="";
+  var shujiname ="";
+  $.ajax({
+    type: "get",
+    url: "http://47.106.247.251:8010/message/studentGetMessage?messageId="+row.messageId,
+    cache: false,
+    async : false,
+    dataType: "json",
+    success: function (msg)
+    {
+      teachername  =  msg.data.teacherName;
+      shujiname  =  msg.data.facultyTeacher;
+    },
+    error:function (err) {
+      alert("请求失败！");
+    }
+  });
+  var status3msg = teachername;
+  console.log(row)
+ /* switch(row.xiaojiastatus)*/
+  var sign = 0;
+  var time = compareTime(row.endTime);
+  if(row.status === 1 && row.reportbackSubmitComment === null && time)
+  {
+    sign = 0;
+  }
+  if( row.reportbackSubmitComment !== null && row.status === '4')
+  {
+    sign = 1;
+  }
+
+  if( row.reportbackSubmitComment !== null  && row.status === '5')
+  {
+    sign = 2;
+  }
+  switch(sign)
   {
     case 0:
+
+
       //请求模块框1
       var str1 = '<form class="form-horizontal">\n' +
         '                               <div class="modal-body">\n' +
         '                                   <div class="row">\n' +
         '                                       <div class="col-md-2" style="text-align: center">\n' +
-        '                                           <span>请假理由:</span>\n' +
+        '                                           <span>销假理由:</span>\n' +
         '                                       </div>\n' +
         '                                       <div class="col-md-10">\n' +
         '                                           <textarea id="xiaojiareason" class="form-control col-md-9" rows="2" maxlength="50"  name="xiaojiaqingqiu"  placeholder="最多输入50个字"></textarea>\n' +
@@ -625,7 +747,7 @@ function showxiaojiamodal(row) {
         '\n' +
         '                                   <div class="form-group row">\n' +
         '                                       <div class="col-md-12 col-md-offset-5">\n' +
-        '                                           <button type="button" id="xiaojiasubmit" class="btn btn-info" onclick=xiaojiareasonsubmit("'+ row.jiatiaoid +'")>提交</button>\n' +
+        '                                           <button type="button" id="xiaojiasubmit" class="btn btn-info" onclick="xiaojiareasonsubmit(' + JSON.stringify(row).replace(/"/g, '&quot;') + ')">提交</button>\n' +
         '                                       </div>\n' +
         '                                   </div>\n' +
         '                               </div>\n' +
@@ -755,9 +877,26 @@ function showxiaojiamodal(row) {
 }
 
 //期满销假 模态框1 提交事件
-function xiaojiareasonsubmit(nodeid) {
-  console.log($('#xiaojiareason').val());
-  console.log(nodeid);
+function xiaojiareasonsubmit(row) {
+  console.log(row);
+  console.log({status:row.status,messageId:row.messageId,reportbackSubmitComment:$('#xiaojiareason').val()})
+  $.ajax({
+    type: "PUT",
+    url: "http://47.106.247.251:8010/message/updateMessageById",
+    /*url: "http://47.106.247.251:8010/teacher/selectTeacherForStudent",*/
+    data: {status:4,messageId:row.messageId,reportbackSubmitComment:$('#xiaojiareason').val(),isReportback:'1'},
+    cache: false,
+    async : false,
+    dataType: "json",
+    success: function (msg)
+    {
+      window.location.reload()
+    },
+    error:function (err) {
+      alert("请求失败！");
+    }
+  });
+
   $('#modal-body').empty();
   //请求模块框2
   var str2 = '<form class="form-horizontal">\n' +
@@ -863,3 +1002,9 @@ $.ajax({
   }
 });
 */
+
+//打印函数
+function  dayinjiatiao() {
+  window.location.href = "http://47.106.247.251:8010/getMessagePDF?messageId="+jiatiaoaidi+"&fileName=message";
+
+}

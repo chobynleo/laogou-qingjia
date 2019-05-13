@@ -3,8 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="09af525c-f67e-4df1-9bd5-c677dd452dad" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/secretary/jqgrid.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/secretary/jqgrid.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/student/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/student/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/student/record.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/student/record.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/teacher/jqgrid.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/teacher/jqgrid.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/script/Submit.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/script/Submit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/zqu/student/record.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/zqu/student/record.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/zqu/teacher/jqgrid.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/zqu/teacher/jqgrid.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,41 +25,42 @@
     <session id="-1135307638">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="16" />
+          <entry key="project.closed" value="19" />
           <entry key="project.open.time.35" value="4" />
-          <entry key="project.open.time.36" value="1" />
+          <entry key="project.open.time.36" value="2" />
           <entry key="project.open.time.37" value="1" />
           <entry key="project.open.time.38" value="2" />
           <entry key="project.open.time.39" value="2" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.40" value="1" />
           <entry key="project.open.time.41" value="1" />
-          <entry key="project.open.time.42" value="1" />
+          <entry key="project.open.time.42" value="2" />
+          <entry key="project.open.time.43" value="1" />
           <entry key="project.open.time.44" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="17" />
+          <entry key="project.opened" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="91" />
-          <entry key="html" value="1590" />
-          <entry key="js" value="7052" />
+          <entry key="html" value="1611" />
+          <entry key="js" value="10304" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="91" />
-          <entry key="HTML" value="1590" />
-          <entry key="JavaScript" value="7052" />
+          <entry key="HTML" value="1611" />
+          <entry key="JavaScript" value="10304" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="8" />
-          <entry key="html" value="39" />
+          <entry key="html" value="47" />
           <entry key="ico" value="1" />
-          <entry key="js" value="80" />
+          <entry key="js" value="95" />
           <entry key="jsp" value="1" />
           <entry key="md" value="1" />
         </counts>
@@ -61,10 +68,10 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="8" />
-          <entry key="HTML" value="39" />
+          <entry key="HTML" value="47" />
           <entry key="Image" value="1" />
           <entry key="JSP" value="1" />
-          <entry key="JavaScript" value="80" />
+          <entry key="JavaScript" value="95" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
@@ -75,42 +82,96 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/student/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="26" column="3" lean-forward="true" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
+            <state>
+              <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/student/record.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="629" column="16" selection-start-line="629" selection-start-column="8" selection-end-line="629" selection-end-column="16" />
+              <folding>
+                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/teacher/jqgrid.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="776" column="2" selection-start-line="776" selection-start-column="2" selection-end-line="781" selection-end-column="3" />
+              <folding>
+                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/zqu/student/record.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="129" column="129" selection-start-line="129" selection-start-column="114" selection-end-line="129" selection-end-column="129" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/zqu/teacher/jqgrid.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="194" column="75" lean-forward="true" selection-start-line="194" selection-start-column="75" selection-end-line="194" selection-end-column="75" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/script/Submit.js">
+        <entry file="file://$PROJECT_DIR$/js/secretary/jqgrid.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="358" lean-forward="true" selection-start-line="358" selection-end-line="358" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/zqu/student/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="36" column="67" selection-start-line="36" selection-start-column="59" selection-end-line="36" selection-end-column="67" />
+            <state relative-caret-position="440">
+              <caret line="732" column="3" selection-start-line="732" selection-start-column="3" selection-end-line="732" selection-end-column="3" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/zqu/login.html">
+        <entry file="file://$PROJECT_DIR$/js/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="585">
+              <caret line="63" selection-start-line="63" selection-end-line="63" />
             </state>
           </provider>
         </entry>
@@ -127,36 +188,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>close</find>
-      <find>reson</find>
-      <find>statusFormatter</find>
-      <find>Edit</find>
-      <find>Detail1</find>
-      <find>nameid</find>
-      <find>·</find>
-      <find>disabled</find>
-      <find>needxiaojia</find>
-      <find>submitEdit</find>
-      <find>agree</find>
-      <find>isteacherxiaojiaqueren</find>
-      <find>needxiaojiahidden</find>
-      <find>只有正常审批后的申请才能下载电子假条</find>
-      <find>dayin</find>
-      <find>showmodal</find>
-      <find>returnstatusval</find>
-      <find>showxiaojiamodal</find>
-      <find>该学生是否提交了销假请求，0代表没有，1代表有 2代表销假完成(体现在销假确认那里。)</find>
-      <find>即isxiaojia为0</find>
-      <find>isxiaojia</find>
-      <find>该学生是否提交了销假请求，0代表没有，1代表有(体现在销假确认那里。)</find>
-      <find>:ss</find>
-      <find>JudgeTime</find>
-      <find>当前状态</find>
-      <find>:38</find>
-      <find>studentId</find>
-      <find>console.log</find>
-      <find>ico</find>
+      <find>PUT</find>
+      <find>QUERENXIAOJIAB</find>
+      <find>REPLAC</find>
+      <find>XIAOJIAQUEREN</find>
+      <find>querenxiaojiabutton</find>
+      <find>班级</find>
+      <find>banjilist</find>
+      <find>所有业务</find>
+      <find>datalist</find>
+      <find>targetteacher</find>
+      <find>modal</find>
+      <find>userId</find>
+      <find>userid</find>
+      <find>agreebutton</find>
+      <find>isclick</find>
+      <find>session</find>
       <find>username</find>
+      <find>show</find>
+      <find>打印假条</find>
+      <find>showmodal</find>
+      <find>printExcel</find>
+      <find>操作</find>
+      <find>excel</find>
+      <find>url</find>
+      <find>dayin</find>
+      <find>download</find>
+      <find>href</find>
+      <find>fileurl</find>
+      <find>周荣伟</find>
+      <find>down</find>
     </findStrings>
     <replaceStrings>
       <replace>../../..</replace>
@@ -179,20 +240,20 @@
         <option value="$PROJECT_DIR$/static/script/demo.js" />
         <option value="$PROJECT_DIR$/views/zqu/teacher/demo.html" />
         <option value="$PROJECT_DIR$/static/css/studentList/style.css" />
-        <option value="$PROJECT_DIR$/views/zqu/student/record.html" />
-        <option value="$PROJECT_DIR$/views/zqu/teacher/jqgrid.html" />
         <option value="$PROJECT_DIR$/views/zqu/secretary/jqgrid.html" />
-        <option value="$PROJECT_DIR$/js/student/record.js" />
-        <option value="$PROJECT_DIR$/js/secretary/jqgrid.js" />
-        <option value="$PROJECT_DIR$/js/teacher/jqgrid.js" />
         <option value="$PROJECT_DIR$/views/zqu/student/index.html" />
         <option value="$PROJECT_DIR$/views/zqu/singlepage/anti-fake.html" />
         <option value="$PROJECT_DIR$/css/login.css" />
         <option value="$PROJECT_DIR$/js/singlepage/anti-fake.js" />
-        <option value="$PROJECT_DIR$/js/login.js" />
         <option value="$PROJECT_DIR$/views/zqu/login.html" />
-        <option value="$PROJECT_DIR$/js/student/index.js" />
         <option value="$PROJECT_DIR$/static/script/Submit.js" />
+        <option value="$PROJECT_DIR$/js/login.js" />
+        <option value="$PROJECT_DIR$/views/zqu/student/record.html" />
+        <option value="$PROJECT_DIR$/js/student/index.js" />
+        <option value="$PROJECT_DIR$/js/student/record.js" />
+        <option value="$PROJECT_DIR$/views/zqu/teacher/jqgrid.html" />
+        <option value="$PROJECT_DIR$/js/teacher/jqgrid.js" />
+        <option value="$PROJECT_DIR$/js/secretary/jqgrid.js" />
       </list>
     </option>
   </component>
@@ -235,6 +296,12 @@
               <item name="laogou-front-end" type="b2602c69:ProjectViewProjectNode" />
               <item name="laogou-front-end" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="secretary" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laogou-front-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laogou-front-end" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="singlepage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -242,6 +309,12 @@
               <item name="laogou-front-end" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="student" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laogou-front-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laogou-front-end" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="teacher" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="laogou-front-end" type="b2602c69:ProjectViewProjectNode" />
@@ -257,6 +330,12 @@
             <path>
               <item name="laogou-front-end" type="b2602c69:ProjectViewProjectNode" />
               <item name="laogou-front-end" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="script" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laogou-front-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laogou-front-end" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -271,6 +350,13 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="zqu" type="462c0819:PsiDirectoryNode" />
               <item name="student" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laogou-front-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laogou-front-end" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="zqu" type="462c0819:PsiDirectoryNode" />
+              <item name="teacher" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -305,6 +391,16 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:1703/laogou-front-end/views/zqu/student/index.html">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -330,18 +426,39 @@
       <workItem from="1557373376408" duration="1847000" />
       <workItem from="1557398838817" duration="3905000" />
       <workItem from="1557473798336" duration="13642000" />
-      <workItem from="1557556244580" duration="1854000" />
+      <workItem from="1557556244580" duration="22716000" />
+      <workItem from="1557624479889" duration="7500000" />
+      <workItem from="1557635530368" duration="32797000" />
+      <workItem from="1557709803120" duration="8360000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115961000" />
+    <option name="totallyTimeSpent" value="185480000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25937665" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2588484" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3291714" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2588484" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -358,13 +475,24 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/teacher/jqgrid.js</url>
+          <line>959</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/views/zqu/index.jsp" />
@@ -441,31 +569,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/script/table.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12240">
-          <caret line="408" column="3" lean-forward="true" selection-start-line="408" selection-start-column="3" selection-end-line="408" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/zqu/teacher/jqgrid.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="33" column="77" selection-start-line="33" selection-start-column="77" selection-end-line="33" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/zqu/secretary/jqgrid.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="31" column="36" lean-forward="true" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/teacher/jqgrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-228">
-          <caret line="367" column="6" lean-forward="true" selection-start-line="367" selection-start-column="6" selection-end-line="367" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -483,37 +590,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/zqu/student/record.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="39" column="14" selection-start-line="38" selection-end-line="39" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/student/record.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24480">
-          <caret line="816" lean-forward="true" selection-start-line="816" selection-end-line="843" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/secretary/jqgrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5562">
-          <caret line="368" column="6" selection-start-line="368" selection-start-column="6" selection-end-line="368" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/zqu/singlepage/anti-fake.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
           <caret line="62" column="15" selection-start-line="62" selection-start-column="15" selection-end-line="62" selection-end-column="15" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/verify.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-21363" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/singlepage/anti-fake.js">
@@ -526,45 +607,117 @@
     <entry file="file://$PROJECT_DIR$/static/images/favicon.ico">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/login.js">
+    <entry file="file://$PROJECT_DIR$/static/script/Submit.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="53" column="44" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="44" />
+        <state relative-caret-position="422">
+          <caret line="362" column="40" lean-forward="true" selection-start-line="362" selection-start-column="40" selection-end-line="362" selection-end-column="40" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/verify.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/views/zqu/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="-1080">
           <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/zqu/student/index.html">
+    <entry file="file://$PROJECT_DIR$/static/script/table.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="36" column="67" selection-start-line="36" selection-start-column="59" selection-end-line="36" selection-end-column="67" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="30">
+          <caret line="408" column="3" lean-forward="true" selection-start-line="408" selection-start-column="3" selection-end-line="408" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/student/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="26" column="3" lean-forward="true" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
+        <state>
+          <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/script/Submit.js">
+    <entry file="file://$PROJECT_DIR$/views/zqu/student/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="358" lean-forward="true" selection-start-line="358" selection-end-line="358" />
+        <state relative-caret-position="-340">
+          <caret line="153" column="59" lean-forward="true" selection-start-line="153" selection-start-column="59" selection-end-line="153" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/student/record.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="629" column="16" selection-start-line="629" selection-start-column="8" selection-end-line="629" selection-end-column="16" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/zqu/student/record.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="129" column="129" selection-start-line="129" selection-start-column="114" selection-end-line="129" selection-end-column="129" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/zqu/teacher/jqgrid.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="194" column="75" lean-forward="true" selection-start-line="194" selection-start-column="75" selection-end-line="194" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/teacher/jqgrid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="776" column="2" selection-start-line="776" selection-start-column="2" selection-end-line="781" selection-end-column="3" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/secretary/jqgrid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="732" column="3" selection-start-line="732" selection-start-column="3" selection-end-line="732" selection-end-column="3" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
